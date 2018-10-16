@@ -16,12 +16,16 @@ we will talk some more.
 ---
 """
 
-calendarData = calendarData.split("---")
+# calendarData = calendarData.split("---")
 
 
 
-infile = open("./privateData/infile.txt", "r", encoding="utf-8")
-print(infile)
-for line in infile:
-    print(line.rstrip())
-infile.close()
+# infile = open("./privateData/infile.txt", "r", encoding="utf-8")
+# print(infile)
+# for line in infile:
+    # print(line.rstrip())
+# infile.close()
+
+outfile = open("./privateData/outfile.ics", "w", encoding="utf-8")
+outfile.write(calendarData)
+outfile.close()
