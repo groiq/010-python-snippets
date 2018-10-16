@@ -17,3 +17,11 @@ we will talk some more.
 """
 
 calendarData = calendarData.split("---")
+
+
+
+infile = open("./privateData/infile.txt", "r", encoding="utf-8")
+print(infile)
+for line in infile:
+    print(line.rstrip())
+infile.close()
