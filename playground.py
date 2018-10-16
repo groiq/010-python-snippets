@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-
+import datetime
+import arrow
 
 # set up test data for calendar generation
 
@@ -16,6 +17,8 @@ we will talk some more.
 //
 """
 
+# import into json object
+
 calendarData = calendarData.split("//")
 
 # remove empty items
@@ -30,6 +33,8 @@ for i in range(len(calendarData)):
     entry["name"] = entryList[0].strip()
     entry["location"] = entryList[1].strip()
     entry["description"] = entryList[2].strip()
+    entry["begin"] = arrow.now()
+    entry["end"] = arrow.now()
     calendarData[i] = entry
     
 
