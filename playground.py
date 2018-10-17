@@ -38,19 +38,12 @@ for i in range(len(calendarData)):
     calendarData[i] = entry
     
 
-        
-# cd2 = calendarData.split("---")
-# cd3 = list()
-# for item in cd2:
-    # cd3.append(item.split("\n"))
-
-# calendarData = cd3
-
-# infile = open("./privateData/infile.txt", "r", encoding="utf-8")
-# print(infile)
-# for line in infile:
-    # print(line.rstrip())
-# infile.close()
+    
+    
+    
+    
+    
+# write output to file
 
 outfile = open("./privateData/outfile.ics", "w", encoding="utf-8")
 outfile.write(format(calendarData))
