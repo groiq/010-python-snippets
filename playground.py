@@ -2,6 +2,7 @@
 
 import datetime
 import arrow
+import ics
 
 # set up test data for calendar generation
 # ----------------------------------------
@@ -43,12 +44,13 @@ for i in range(len(calendarData)):
 # Generate ics file    
 # -----------------
     
-
+calendarAsICS = ics.Calendar()
     
     
 # write output to file
 # --------------------
 
 outfile = open("./privateData/outfile.ics", "w", encoding="utf-8")
-outfile.write(format(calendarData))
+# outfile.write(format(calendarData))
+outfile.writelines(calendarAsICS)
 outfile.close()
