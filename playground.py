@@ -4,6 +4,7 @@ import datetime
 import arrow
 
 # set up test data for calendar generation
+# ----------------------------------------
 
 calendarData = """
 //
@@ -39,11 +40,14 @@ for i in range(len(calendarData)):
     
 
     
+# Generate ics file    
+# -----------------
     
-    
+
     
     
 # write output to file
+# --------------------
 
 outfile = open("./privateData/outfile.ics", "w", encoding="utf-8")
 outfile.write(format(calendarData))
