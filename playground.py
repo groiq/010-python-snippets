@@ -4,6 +4,8 @@ import datetime
 import arrow
 import ics
 
+testOutput = list()
+
 # set up test data for calendar generation
 # ----------------------------------------
 
@@ -39,13 +41,16 @@ for i in range(len(calendarData)):
     entry["end"] = arrow.now()
     calendarData[i] = entry
     
-
     
 # Generate ics file    
 # -----------------
     
 calendarAsICS = ics.Calendar()
-    
+for entry in calendarData:
+        testOutput.append(entry)
+        newEntry = ics.Event()
+            
+        calendarAsICS.events.add(newEntry)
     
 # write output to file
 # --------------------
@@ -53,4 +58,6 @@ calendarAsICS = ics.Calendar()
 outfile = open("./privateData/outfile.ics", "w", encoding="utf-8")
 # outfile.write(format(calendarData))
 outfile.writelines(calendarAsICS)
+for item in testOutput:
+    outfile.write("{}\n".format(item))
 outfile.close()
