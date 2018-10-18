@@ -11,7 +11,7 @@ output = []
 
 icsData = ics.Calendar()
 newEntry = None
-newEntryRegex = r""".*"""
+newEntryRegex = r"""Do\. (\d{2})\.\s?(\d{2})\.\s?(\d{4})\s?:\s*[„“]?([^„“]*)[„“]?\s*"""
 
 
 infile = open("privateData/infile.txt", "r", encoding="utf-8")
@@ -21,6 +21,7 @@ for line in infile:
     newEntryEval = re.match(newEntryRegex,line)
     if newEntryEval:
         output.append(line)
+        output.append(newEntryEval.groups())
     
     
 infile.close()
