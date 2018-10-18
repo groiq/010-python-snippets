@@ -22,6 +22,8 @@ icsData = ics.Calendar()
 
 outfile = open("privateData/outfile.ics", "w", encoding="utf-8")
 
+outfile.writelines(icsData)
+
 for line in output:
     outfile.write(format(line))
     outfile.write("\n")
