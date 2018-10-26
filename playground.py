@@ -6,7 +6,7 @@ import csv
 csvData = csv.DictReader(open("./privateData/uniteCSV.csv", "r", encoding="utf-8-sig"), delimiter=";")
 urlList = open("./privateData/uniteCSV.txt", "r", encoding="utf-8").readlines()
 # print(type(urlList))
-pprint(urlList)
+# pprint(urlList)
 
 
 data = list()
@@ -40,6 +40,7 @@ header = """
     <title>unite csv</title>
   </head>
   <body>
+  
 """
 
 footer = """
@@ -47,12 +48,23 @@ footer = """
 </html>
 """
 
+bod = list()
+bod.append("<table>")
+for dataset in data:
+    bod.append("<tr>")
+    # bod.append("<td>{}</td>".format(dataset["Name"]))
+    bod.append("</tr>")
+bod.append("</table>")
+
 htmlOutput = open("./privateData/uniteCSVOut.html", "w", encoding="utf-8")
 htmlOutput.write(header)
-htmlOutput.write("<pre>")
-htmlOutput.write(format(data))
-htmlOutput.write("</pre>")
+# htmlOutput.write("<pre>")
+# htmlOutput.write(format(data))
+# htmlOutput.write("</pre>")
+for line in bod:
+    htmlOutput.write(line)
+    htmlOutput.write("\n")
 htmlOutput.write(footer)
 htmlOutput.close()
     
-pprint(data)
+# pprint(data)
