@@ -20,7 +20,7 @@ for row in csvData:
         # print(row[item])
     # print(row["Name"])
     # print(row["Berufe"])
-    row["url"] = urlList[urlNumber]
+    row["url"] = urlList[urlNumber].rstrip()
     urlNumber += 1
     data.append(row)
     
@@ -49,12 +49,18 @@ footer = """
 """
 
 bod = list()
-bod.append("<table>")
+bod.append("<table border='1'>")
 for dataset in data:
     bod.append("<tr>")
-    # bod.append("<td>{}</td>".format(dataset["Name"]))
+    bod.append("<td>{}</td>".format(dataset["Name"]))
+    bod.append("<td><a href='{0}'>{0}</a>".format(dataset["url"]))
+    # print(dataset["Name"])
     bod.append("</tr>")
 bod.append("</table>")
+# bod.append("<p>")
+# for dataset in data:
+    # bod.append("{0}: <a href='{1}'>{1}</a><br />".format(dataset["Name"],dataset["url"]))
+# bod.append("</p>")
 
 htmlOutput = open("./privateData/uniteCSVOut.html", "w", encoding="utf-8")
 htmlOutput.write(header)
