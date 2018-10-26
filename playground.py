@@ -10,6 +10,7 @@ pprint(urlList)
 
 
 data = list()
+urlNumber = 0
 
 for row in csvData:
     # print(row)
@@ -19,6 +20,10 @@ for row in csvData:
         # print(row[item])
     # print(row["Name"])
     # print(row["Berufe"])
+    row["url"] = urlList[urlNumber]
+    urlNumber += 1
     data.append(row)
+    
+
     
 pprint(data)
