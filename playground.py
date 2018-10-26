@@ -24,6 +24,35 @@ for row in csvData:
     urlNumber += 1
     data.append(row)
     
+# write json to file
+jsonFile = open("./privateData/uniteCSVJson.json", "w", encoding="utf-8")
+jsonFile.write(format(data))
+jsonFile.close()
 
+# generate HTML
+
+header = """
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unite csv</title>
+  </head>
+  <body>
+"""
+
+footer = """
+  </body>
+</html>
+"""
+
+htmlOutput = open("./privateData/uniteCSVOut.html", "w", encoding="utf-8")
+htmlOutput.write(header)
+htmlOutput.write("<pre>")
+htmlOutput.write(format(data))
+htmlOutput.write("</pre>")
+htmlOutput.write(footer)
+htmlOutput.close()
     
 pprint(data)
