@@ -14,7 +14,10 @@ def mon(day):
 def sun(day):
     return date(day+6)
 
-for i in range(5):
+while (day+6) <= 31:
+    # curWeek = dict()
+    # curWeek["mon"] = mon(day)
+    # curWeek["sun"] = sun(day)
     timelog.append(mon(day))
     timelog.append(sun(day))
 
