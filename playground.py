@@ -13,14 +13,19 @@ def mon(day):
     return date(day)
 def sun(day):
     return date(day+6)
+projects = ["coding","writing","reading","gaming"]
+time = "15:00:00"
+projectTimes = dict()
+for project in projects:
+    projectTimes[project] = time
 
 while (day+6) <= 31:
-    # curWeek = dict()
-    # curWeek["mon"] = mon(day)
-    # curWeek["sun"] = sun(day)
-    timelog.append(mon(day))
-    timelog.append(sun(day))
+    curWeek = dict()
+    curWeek["mon"] = mon(day)
+    curWeek["sun"] = sun(day)
+    curWeek["times"] = projectTimes
 
+    timelog.append(curWeek)
     day += 7
 
 pprint(timelog)
