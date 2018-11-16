@@ -29,3 +29,4 @@ while (day+6) <= 31:
     day += 7
 
 pprint(timelog)
+# ...and just copy the terminal output.
