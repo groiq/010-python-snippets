@@ -41,3 +41,4 @@ def cycleThroughCategory(catIndex):
 cycleThroughCategory(0)
 
 # rename each file from os.listdir with the values from that cycle
+
