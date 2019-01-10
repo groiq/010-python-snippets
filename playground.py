@@ -8,8 +8,19 @@ from pprint import pprint
 
 # read data
 
+import csv
 
+with open("./publicTestData/csv2table.csv","r",encoding="utf-8") as dataFile:
+    data = csv.DictReader(dataFile, delimiter=";")
 
+    for row in data:
+        #print(row)
+        print(row["Name"])
+        #print(row["Menge"])
+        #for field in row:
+         #   print(field)
+
+    
 # write html output
 
 header = """<!DOCTYPE html>
