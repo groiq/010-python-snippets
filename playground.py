@@ -10,12 +10,26 @@ from pprint import pprint
 
 import csv
 
-with open("./publicTestData/csv2table.csv","r",encoding="utf-8") as dataFile:
-    data = csv.DictReader(dataFile, delimiter=";")
+data = []
 
-    for row in data:
+with open("./publicTestData/csv2table.csv","r",encoding="utf-8") as dataFile:
+    dataSource = csv.DictReader(dataFile, delimiter=";")
+
+    for row in dataSource:
         #print(row)
-        print(row["Name"])
+        tempDict = {}
+        tempDict["Name"] = row["\ufeffName"]
+        tempDict["Menge"] = row["Menge"]
+        tempDict["Stückzahl"] = row["Stückzahl"]
+        #for field in row:
+         #   tempDict[field] = row[field]
+        #tempDict["Name"] = row["Name"]
+        data.append(tempDict)
+        
+
+    #for row in data:
+        #print(row)
+       # print(row["Name"])
         #print(row["Menge"])
         #for field in row:
          #   print(field)
@@ -49,6 +63,12 @@ tableHeader="""
 <table border='1' width='100%'>
 """
 
+tablePlaceholder = """
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+"""
+
 
 
 tableFooter="""
@@ -57,13 +77,9 @@ tableFooter="""
 
 output.write(tableHeader)
 
-tablePlaceholder = """
-<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-"""
-
 output.write(tablePlaceholder)
+
+
 
 output.write(tableFooter)
 
