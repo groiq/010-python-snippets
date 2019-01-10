@@ -77,8 +77,21 @@ tableFooter="""
 
 output.write(tableHeader)
 
-output.write(tablePlaceholder)
+#output.write(tablePlaceholder)
 
+print(data)
+for row in data:
+    output.write("<tr>\n")
+    output.write("<td colspan='8'>{}</td>".format(row["Name"]))
+    output.write("<td>{}</td>".format(row["Menge"]))
+    output.write("<td>{}</td>".format(row["Stückzahl"]))
+    output.write("</tr>\n<tr>")
+    for i in range(10):
+        output.write("<td>&nbsp;</td>")
+    output.write("\n")
+    #output.write(
+
+    output.write("</tr>\n")
 
 
 output.write(tableFooter)
