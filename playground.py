@@ -32,8 +32,29 @@ output = open("./publicTestData/csv2table.html","w",encoding="utf-8")
 
 output.write(header)
 
-output.write("Content goes here\n")
+output.write("<h2 align='center'>This is a csv file rendered as a table</h2>\n\n")
 
+tableHeader="""
+<table border='1' width='100%'>
+"""
+
+
+
+tableFooter="""
+</table>
+"""
+
+output.write(tableHeader)
+
+tablePlaceholder = """
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+"""
+
+output.write(tablePlaceholder)
+
+output.write(tableFooter)
 
 
 output.write(footer)
