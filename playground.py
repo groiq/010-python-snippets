@@ -27,13 +27,6 @@ with open("./publicTestData/csv2table.csv","r",encoding="utf-8") as dataFile:
         data.append(tempDict)
         
 
-    #for row in data:
-        #print(row)
-       # print(row["Name"])
-        #print(row["Menge"])
-        #for field in row:
-         #   print(field)
-
     
 # write html output
 
@@ -63,13 +56,6 @@ tableHeader="""
 <table border='1' width='100%'>
 """
 
-tablePlaceholder = """
-<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-"""
-
-
 
 tableFooter="""
 </table>
@@ -79,7 +65,7 @@ output.write(tableHeader)
 
 #output.write(tablePlaceholder)
 
-print(data)
+#print(data)
 for row in data:
     output.write("<tr>\n")
     output.write("<td colspan='8'>{}</td>".format(row["Name"]))
@@ -89,8 +75,6 @@ for row in data:
     for i in range(10):
         output.write("<td>&nbsp;</td>")
     output.write("\n")
-    #output.write(
-
     output.write("</tr>\n")
 
 
